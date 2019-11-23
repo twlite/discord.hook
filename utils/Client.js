@@ -25,10 +25,9 @@ class Client {
      * @returns {Promise<Object>}
      */
 
-    createMessage(message, embed = [], username = null, avatarURL = null) {
-        console.log(embed)
-
-        if (!message) throw new TypeError("[webhook] Cannot send an empty message!");
+    sendMessageEmbed(message, embed = [], username = null, avatarURL = null) {
+        
+        if (!message && embed.length === 0) throw new TypeError("[webhook] Cannot send an empty message!");
 
         return new Promise(async (resolve, reject) => {
             if (!username && !avatarURL) {
@@ -43,6 +42,7 @@ class Client {
                     .catch((err) => {
                         console.log(err)
                     })
+                return
             }
             if (username && !avatarURL) {
                 fetch(this.webhookClientURL, {
@@ -57,6 +57,7 @@ class Client {
                     .catch((err) => {
                         console.log(err)
                     })
+                return
             }
             if (!username && avatarURL) {
                 fetch(this.webhookClientURL, {
@@ -71,6 +72,7 @@ class Client {
                     .catch((err) => {
                         console.log(err)
                     })
+                return
             }
             else {
                 fetch(this.webhookClientURL, {
@@ -86,11 +88,157 @@ class Client {
                     .catch((err) => {
                         console.log(err)
                     })
+                    return
             }
-            
+
         });
     }
 
+    /**
+     * Send Message Through Webhook Client
+     * @param {string} message Message
+     * @param {string} username Webhook username
+     * @param {string} avatarURL Avatar url of the webhook
+     * @returns {Promise<Object>}
+     */
+
+    sendMessage(message, username = null, avatarURL = null) {
+
+        if (!message) throw new TypeError("[webhook] Cannot send an empty message!");
+
+        return new Promise(async (resolve, reject) => {
+            if (!username && !avatarURL) {
+                fetch(this.webhookClientURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        "content": `${message}`
+                    })
+                })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+                    return
+            }
+            if (username && !avatarURL) {
+                fetch(this.webhookClientURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        "username": `${username}`,
+                        "content": `${message}`
+                    })
+                })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+                    return
+            }
+            if (!username && avatarURL) {
+                fetch(this.webhookClientURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        "avatar_url": `${avatarURL}`,
+                        "content": `${message}`
+                    })
+                })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+                    return
+            }
+            else {
+                fetch(this.webhookClientURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        "username": `${username}`,
+                        "avatar_url": `${avatarURL}`,
+                        "content": `${message}`
+                    })
+                })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+                    return
+            }
+
+        });
+    }
+
+    /**
+     * Send Embed Through Webhook Client
+     * @param {Array} embed Embed object
+     * @param {string} username Webhook username
+     * @param {string} avatarURL Avatar url of the webhook
+     * @returns {Promise<Object>}
+     */
+
+    sendEmbed(embed = [], username = null, avatarURL = null) {
+
+        if (embed.length === 0) throw new TypeError("[webhook] Embed cannot be empty!");
+
+        return new Promise(async (resolve, reject) => {
+            if (!username && !avatarURL) {
+                fetch(this.webhookClientURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        "embeds": embed
+                    })
+                })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+                return
+            }
+            if (username && !avatarURL) {
+                fetch(this.webhookClientURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        "username": `${username}`,
+                        "embeds": embed
+                    })
+                })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+                return
+            }
+            if (!username && avatarURL) {
+                fetch(this.webhookClientURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        "avatar_url": `${avatarURL}`,
+                        "embeds": embed
+                    })
+                })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+                return
+            }
+            else {
+                fetch(this.webhookClientURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        "username": `${username}`,
+                        "avatar_url": `${avatarURL}`,
+                        "embeds": embed
+                    })
+                })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+                return
+            }
+
+        });
+    }
 };
 
 module.exports = Client;
