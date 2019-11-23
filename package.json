@@ -1,0 +1,26 @@
+{
+  "name": "discord.hook",
+  "version": "1.0.0",
+  "description": "A simple api wrapper for discord webhooks.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inex07/webhook.js.git"
+  },
+  "keywords": [
+    "discord-webhook",
+    "discord.hook"
+  ],
+  "author": "INEX07",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/inex07/webhook.js/issues"
+  },
+  "homepage": "https://github.com/inex07/webhook.js#readme",
+  "devDependencies": {
+    "node-fetch": "^2.6.0"
+  }
+}
