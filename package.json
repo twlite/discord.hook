@@ -1,6 +1,6 @@
 {
   "name": "discord.hook",
-  "version": "1.0.1",
+  "version": "1.0.1-b",
   "description": "A module for Discord Webhooks written in JavaScript.",
   "main": "index.js",
   "scripts": {
