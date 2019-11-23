@@ -2,10 +2,11 @@
 
 A module for Discord Webhooks written in JavaScript.
 
+> [![NPM](https://nodei.co/npm/discord.hook.png)](https://nodei.co/npm/discord.hook/)
+
 ## Installing
 
 ```
-
 npm i --save discord.webhook
 
 ```
