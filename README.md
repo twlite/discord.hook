@@ -8,7 +8,6 @@ A module for Discord Webhooks written in JavaScript.
 
 ```
 npm i --save discord.webhook
-
 ```
 
 ## Webhook Class
