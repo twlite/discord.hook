@@ -128,6 +128,7 @@ class CreateEmbed {
      */
     setColor(color) {
         if (!color) throw new Error("[webhook] Embed color shouldn't be empty!");
+        let convertColor = 
         this.embed[0].color = color;
         return this;
     }
