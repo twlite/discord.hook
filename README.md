@@ -70,7 +70,7 @@ client.send(Embed);
 ```js
 
 const Hook = require('discord.hook');
-const client = new Hook.Client('webhook-url');
+const client = new Hook.Client('webhook-id', 'webhook-token');
 
 const message = "Hello, this is a webhook";
 
