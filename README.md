@@ -103,7 +103,7 @@ client.on("CONNECTED", (c) => {
     console.log(`Connected!\nUsername: ${c.user.tag}`);
 });
 
-client.on("MESSAGE_SEND", (m) => {
+client.on("MESSAGE", (m) => {
     console.log("Message sent!\n"+JSON.stringify(m));
 });
 
