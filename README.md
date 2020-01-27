@@ -125,6 +125,7 @@ const embed = new Webhook.DiscordEmbed()
 
 client.send({ embeds: embed.embeds, content: 'Hello World!', avatar_url: "https://cdn.discordapp.com/avatars/480933736276426763/a_73d44cd1aea26f51ca96febf07fb0019.png?size=1024", username: "INEX07" });
 ```
+![img](https://github.com/INEX07/discord.hook/blob/master/image.png?raw=true)
 
 # Client Options
 
